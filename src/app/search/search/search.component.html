@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1 class="mat-h1">
+        Explore the rockets library.
+      </h1>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <app-search-filter (search)="onSearch($event)">
+      </app-search-filter>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content *ngIf="filteredLaunches">
+    <app-counter [counter]="{length:filteredLaunches.length, message:'Launches found'}"></app-counter>
+    <app-launches-list [launches]="filteredLaunches"
+                       [statuses]="statuses"
+                       relativePath='../launch'></app-launches-list>
+  </mat-card-content>
+</mat-card>

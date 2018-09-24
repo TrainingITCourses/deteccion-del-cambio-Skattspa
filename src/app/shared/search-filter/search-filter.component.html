@@ -1,0 +1,10 @@
+<section>
+  <mat-form-field>
+    <input #searchText
+           matInput
+           name="search"
+           type="text"
+           placeholder="Type here to search"
+           (keyup)="search.next(searchText.value)">
+  </mat-form-field>
+</section>

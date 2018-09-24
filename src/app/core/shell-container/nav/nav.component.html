@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer
+               class="sidenav"
+               fixedInViewport="true"
+               [attr.role]="isHandset ? 'dialog' : 'navigation'"
+               [mode]="isHandset ? 'over' : 'side'"
+               [opened]="!isHandset">
+    <mat-toolbar color="primary">
+      <mat-icon>home</mat-icon> - Home
+    </mat-toolbar>
+    <mat-nav-list *ngIf="loaded">
+      <a mat-list-item
+         routerLink="">Next Launches</a>
+      <a mat-list-item
+         routerLink="favorites">Favorites</a>
+      <a mat-list-item
+         routerLink="search">Search</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary"
+                 fxLayoutAlign="space-between center">
+      <button *ngIf="isHandset"
+              type="button"
+              mat-icon-button
+              (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ appTitle }}</span>
+      <span fxFlex></span>
+      <span *ngIf="!loaded">
+        <mat-icon>cloud_download</mat-icon>
+        Loading...
+      </span>
+      <app-t-minus *ngIf="nextLaunch"
+                   [nextLaunch]="nextLaunch"></app-t-minus>
+    </mat-toolbar>
+    <router-outlet *ngIf="loaded; else loading">
+    </router-outlet>
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,9 @@
+<span fxLayout="row"
+      fxLayoutAlign="space-around center">
+  <!-- <mat-icon color="warn">restore</mat-icon>
+  <span>{{ tMinus.counter }}</span>
+  <mat-icon color="warn">restore</mat-icon>
+  <app-display [tMinus]="tMinus"></app-display> -->
+  <!-- <mat-icon color="warn">restore</mat-icon> -->
+  <app-display [tMinus]="tMinus$ | async"></app-display>
+</span>

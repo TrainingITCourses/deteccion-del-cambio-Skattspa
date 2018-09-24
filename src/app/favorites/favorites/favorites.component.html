@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1 class="mat-h1">
+        Your Favorite Launches
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content *ngIf="launches">
+    <app-counter [counter]="{length:launches.length, message:'Launches found'}"></app-counter>
+    <app-launches-list [launches]="launches"
+                       [statuses]="statuses"
+                       relativePath='../launch'></app-launches-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,5 @@
+<span *ngIf="counter.length>0; else noData"
+      [matBadge]="counter.length"
+      matBadgeOverlap="false"
+      matBadgePosition="above before">{{ counter.message }}</span>
+<ng-template #noData>No data yet</ng-template>
